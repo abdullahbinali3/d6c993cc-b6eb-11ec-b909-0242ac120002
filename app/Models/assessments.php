@@ -9,8 +9,14 @@ class assessments extends Model
 {
     use HasFactory;
 
-    public function getAll(){
+    public function __construct(array $assessments = array())
+    {
         $assessments = json_decode(file_get_contents(database_path() . "/json/assessments.json"), true);
-        return $assessments;
+        $this->assessments = $assessments;
     }
+
+    public function getAll(){
+        return $this->assessments;
+    }
+
 }
