@@ -1,0 +1,28 @@
+version: '3.5'
+
+services:
+  app:
+    build:
+      context: '.'
+      dockerfile: Dockerfile
+      args:
+        uid: ${UID}
+    container_name: app
+    volumes:
+      - .:/var/www/html
+    ports:
+      - 8001:80
+    command: php artisan report:generate
+
+  test:
+    build:
+      context: '.'
+      dockerfile: Dockerfile
+      args:
+        uid: ${UID}
+    container_name: app
+    volumes:
+      - .:/var/www/html
+    ports:
+      - 8001:80
+    command: php artisan test

@@ -104,7 +104,6 @@ class GenerateReport extends Command
             $this->info("Right answer: B with value 9");
             $this->info("Hint: You must first arrange the numbers in ascending order. The median is the middle term, which in this case is 9");
 
-
         }
         // feedback report //end
 
